@@ -7,7 +7,61 @@
   <title>Figuras Geométricas</title>
 </head>
 <body>
-  <h1>Figuras Geométricas</h1>
+  <header>
+    <h1>Figuras Geométricas</h1>
+    <p>Primer taller del Curso Práctico de Java</p>
+  </header>
+  <section>
+    <h2>Calcular Área y Perímetro del Cuadrado</h2>
+    <form>
+      <label>
+        Proporciona la medida del lado del cuadrado:
+      </label>
+      <input type="number" id="inputCuadrado">
+      <br><br>
+      <button type="button" onclick="calculaPerimetroCuadrado()">Perímetro</button>
+      <button type="button" onclick="calculaAreaCuadrado()">Área</button>
+    </form>
+  </section>
+  <section>
+    <h2>Calcular Área y Perímetro del Triángulo</h2>
+    <form>
+      <label>
+        Proporciona la medida del primer lado del triángulo:
+      </label>
+      <input type="number" id="primerLado">
+      <br>
+      <label>
+        Proporciona la medida del segundo lado del triángulo:
+      </label>
+      <input type="number" id="segundoLado">
+      <br>
+      <label>
+        Proporciona la medida de la base del triángulo:
+      </label>
+      <input type="number" id="base">
+      <br>
+      <label>
+        Proporciona la medida de la altura del triángulo:
+      </label>
+      <input type="number" id="altura">
+      <br><br>
+      <button type="button" onclick="calculaPerimetroTriangulo()">Perímetro</button>
+      <button type="button" onclick="calculaAreaTriangulo()">Área</button>
+    </form>
+  </section>
+  <section>
+    <h2>Calcular Área y Perímetro del Círculo</h2>
+    <form>
+      <label>
+        Proporciona la medida del radio del círculo:
+      </label>
+      <input type="number" id="radio">
+      <br><br>
+      <button type="button" onclick="calculaPerimetroCirculo()">Perímetro</button>
+      <button type="button" onclick="calculaAreaCirculo()">Área</button>
+    </form>
+  </section>
   <script src="./figuras.js"></script>
 </body>
 </html>
