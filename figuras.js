@@ -74,3 +74,17 @@ function calculaAreaCirculo() {
   const area = areaCirculo(input1);
   alert(area);
 }
+
+//Isosceles
+function calculaAltura() {
+  const input1 = parseInt(document.getElementById("lado1").value);
+  const input2 = parseInt(document.getElementById("lado2").value);
+  const input3 = parseInt(document.getElementById("lado3").value);
+  if (input1 != input2) {
+    alert("No es isósceles");
+  } else {
+    const raiz = (Math.pow(input1, 2) - ((Math.pow(input2, 2)) / 4));
+    const perimetro = Math.sqrt(raiz);
+    alert(perimetro);
+  }
+}
