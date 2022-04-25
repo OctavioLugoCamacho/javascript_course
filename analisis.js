@@ -1,42 +1,61 @@
-const salariosMex = mexico.map(
-  function (persona) {
-    return persona.salary;
+// Helpers
+function esPar(numerito) {
+  return (numerito % 2 === 0);
+}
+
+function calcularMediaAritmetica(lista) {
+  const sumaLista = lista.reduce(
+    function (valorAcumulado = 0, nuevoElemento) {
+      return valorAcumulado + nuevoElemento;
+    }
+  );
+  const promedioLista = sumaLista / lista.length;
+  return promedioLista;
+}
+
+// Calculadora de mediana
+function medianaSalarios(lista) {
+  const mitad = parseInt(lista.length / 2);
+
+  if (esPar(lista.length)) {
+    const personitaMitad1 = lista[mitad - 1];
+    const personitaMitad2 = lista[mitad];
+
+    const mediana = calcularMediaAritmetica([personitaMitad1, personitaMitad2]);
+    return mediana;
+  } else {
+    const personitaMitad = lista[mitad];
+    return personitaMitad;
+  }
+}
+
+// Mediana General
+const salariosCol = mexico.map(
+  function (personita) {
+    return personita.salary;
   }
 );
 
-const salariosMexSorted = salariosMex.sort(
+const salariosColSorted = salariosCol.sort(
   function (salaryA, salaryB) {
     return salaryA - salaryB;
   }
 );
 
-function esPar(num) {
-  return (num % 2 === 0);
-}
+const medianaGeneralCol = medianaSalarios(salariosColSorted);
 
-function calcularPromedio(list) {
-  const sumList = list.reduce(
-    function(acumulado = 0, elemento) {
-      return acumulado + elemento;
-    }
-  );
-  const promedio = sumList / list.length;
-  return promedio;
-}
+// Mediana del top 10%
+const spliceStart = (salariosColSorted.length * 90) / 100;
+const spliceCount = salariosColSorted.length - spliceStart;
 
-function salariosMediana(list) {
-  const mitad = parseInt(list.length / 2);
-  if (esPar(list.length)) {
-    const personaMitad1 = list[mitad - 1];
-    const personaMitad2 = list[mitad];
-    const mediana = calcularPromedio([personaMitad1, personaMitad2]);
-    return mediana;
-  } else {
-    const personaMitad = list[mitad];
-    return personaMitad;
-  }
-}
-
-console.log(
-  salariosMediana(salariosMexSorted)
+const salariosColTop10 = salariosColSorted.splice(
+  spliceStart,
+  spliceCount,
 );
+
+const medianaTop10Col = medianaSalarios(salariosColTop10);
+
+console.log({
+  medianaGeneralCol,
+  medianaTop10Col,
+});
