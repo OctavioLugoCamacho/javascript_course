@@ -1,6 +1,6 @@
 function calcularPromedio(list) {
   const sumList = list.reduce(
-    function(acumulado = 0, elemento) {
+    function (acumulado = 0, elemento) {
       return acumulado + elemento;
     }
   );
